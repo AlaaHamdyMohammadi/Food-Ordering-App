@@ -3,10 +3,11 @@ import Right from "../Icons/Right";
 
 function Hero() {
   return (
-    <section className="hero mt-20">
+    <section className="hero my-20">
       <div>
         <h1 className="text-4xl font-semibold">
-          Everything is better with a <span className="text-primary">Pizza</span>
+          Everything is better with a{" "}
+          <span className="text-primary">Pizza</span>
         </h1>
         <p className="my-6 text-gray-500 text-sm">
           Pizza is the missing piece that makes every day complete, a simple yet
