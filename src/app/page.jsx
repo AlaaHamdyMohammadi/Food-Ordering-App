@@ -3,6 +3,7 @@ import Hero from "@/components/Layout/Hero";
 import Menu from "@/components/Layout/Menu";
 import About from "@/components/Layout/About";
 import Contact from "@/components/Layout/Contact";
+import Footer from "@/components/Layout/Footer";
 
 export default function Home() {
   return (
@@ -12,9 +13,8 @@ export default function Home() {
       <Menu />
       <About/>
       <Contact/>
-      <footer className="border-t p-8 text-center text-gray-500 mt-16">
-        &copy; 2024 All right reserved
-      </footer>
+      <Footer/>
+      
     </>
   );
 }
