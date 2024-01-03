@@ -7,7 +7,7 @@ function Header() {
       <Link href="/" className="text-primary font-semibold text-2xl">
         ST PIZZA
       </Link>
-          <Link href={""}>Home</Link>
+          <Link href={"/"}>Home</Link>
           <Link href={""}>Menu</Link>
           <Link href={""}>About</Link>
           <Link href={""}>Contact</Link>
