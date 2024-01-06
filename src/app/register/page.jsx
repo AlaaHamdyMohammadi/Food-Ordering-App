@@ -9,13 +9,11 @@ function RegisterPage() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch('/api/register', {
-        method: 'POST',
-        body: JSON.stringify({email, password}),
-        headers: {
-            'Conten-Type': 'application/json',
-        }
-    })
+    fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   return (
