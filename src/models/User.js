@@ -1,4 +1,6 @@
 const { Schema, models, model } = require("mongoose");
+const bcrypt = require("bcryptjs");
+
 
 const UserSchema = new Schema({
     email: {
@@ -19,4 +21,10 @@ const UserSchema = new Schema({
     },
 }, {timeStamp: true});
  
+UserSchema.pre('save', (next) => {
+
+
+    next();
+})
+
 export const User = models?.User || model('User', UserSchema);
