@@ -2,20 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-section.hero{
-    @apply grid;
-    grid-template-columns: .4fr .6fr;
+section.hero {
+  @apply grid;
+  grid-template-columns: 0.4fr 0.6fr;
 }
 
-input[type="email"], input[type="password"], input[type="text"]{
-    @apply border p-2 border-gray-300 bg-gray-200;
-    @apply block w-full my-4 rounded-md focus:outline-none focus:border-primary;
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  @apply border p-2 border-gray-300 bg-gray-200;
+  @apply block w-full my-4 rounded-md focus:outline-none focus:border-primary;
 }
 
-button{
-    @apply block w-full font-semibold;
-    @apply  border  text-black rounded-md p-2;
+input[type="email"]:disabled,
+input[type="password"]:disabled,
+input[type="text"]:disabled {
+    @apply bg-gray-700
 }
-button[type="submit"], .submit{
-     @apply  border border-gray-200 text-white bg-primary rounded-md;
+
+button {
+  @apply block w-full font-semibold;
+  @apply border  text-black rounded-md p-2;
+}
+button[type="submit"],
+.submit {
+  @apply border border-gray-200 text-white bg-primary rounded-md;
 }

@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/app/*": ["./src/app/*"],
-      "@/models/*": ["./src/models/*"],
-      "@/cpmponents/*": ["./src/cpmponents/*"],
+      "@/*": ["./src/*"]
     }
   }
 }
