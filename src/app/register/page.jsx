@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 function RegisterPage() {
@@ -24,6 +25,7 @@ function RegisterPage() {
   return (
     <section>
       <h1 className="text-center text-primary text-4xl"> Register</h1>
+      {userCreated && <div className="my-4">User created. Now you can <Link href={'/login'}>Login &raquo;</Link></div>}
       <form className="block max-w-xs mx-auto" onSubmit={handleSubmit}>
         <input
           type="email"
