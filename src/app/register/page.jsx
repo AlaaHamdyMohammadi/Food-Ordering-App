@@ -9,23 +9,31 @@ function RegisterPage() {
   const [password, setPassword] = useState("");
   const [creatingUser, setCreatingUser] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
-  
+  const [error, setError] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setCreatingUser(true);
-    await fetch("/api/register", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: { "Content-Type": "application/json" },
-    });
-    setCreatingUser(false);
+    try{
+
+      await fetch("/api/register", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+      });
+      setCreatingUser(false);
+      setUserCreated(true);
+    }catch(error){
+      setError(true);
+    }
   }
 
   return (
     <section>
       <h1 className="text-center text-primary text-4xl"> Register</h1>
-      {userCreated && <div className="my-4">User created. Now you can <Link href={'/login'}>Login &raquo;</Link></div>}
+      {userCreated && <div className="my-4 text-center">User created. Now you can <Link href={'/login'}>Login &raquo;</Link></div>}
+      {error && <div className="my-4 text-center">Error. please try again</div>}
+      
       <form className="block max-w-xs mx-auto" onSubmit={handleSubmit}>
         <input
           type="email"
