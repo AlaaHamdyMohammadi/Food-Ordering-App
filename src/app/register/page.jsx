@@ -14,26 +14,35 @@ function RegisterPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     setCreatingUser(true);
-    try{
+    setError(false);
 
-      await fetch("/api/register", {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-        headers: { "Content-Type": "application/json" },
-      });
-      setCreatingUser(false);
+    const res = await fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log(res);
+
+    if (res.ok) {
       setUserCreated(true);
-    }catch(error){
+    } else {
       setError(true);
     }
+
+    setCreatingUser(false);
   }
 
   return (
     <section>
       <h1 className="text-center text-primary text-4xl"> Register</h1>
-      {userCreated && <div className="my-4 text-center">User created. Now you can <Link href={'/login'}>Login &raquo;</Link></div>}
+      {userCreated && (
+        <div className="my-4 text-center">
+          User created. Now you can <Link href={"/login"}>Login &raquo;</Link>
+        </div>
+      )}
       {error && <div className="my-4 text-center">Error. please try again</div>}
-      
+
       <form className="block max-w-xs mx-auto" onSubmit={handleSubmit}>
         <input
           type="email"
