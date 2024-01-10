@@ -5,31 +5,54 @@ import { useState } from "react";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [creatingUser, setCreatingUser] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  async function handleSubmit(e){
+    e.preventDefault();
+    setLogin(true);
+
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify({email, password}),
+      headers: {'Content-Type': 'application/json'},
+    });
+
+    if(res.ok){
+
+    }else{
+
+    }
+    setLogin(false);
+  }
 
   return (
     <section className="mt-8">
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
-      <form className="block max-w-xs mx-auto ">
+      <form className="block max-w-xs mx-auto" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          disabled={creatingUser}
+          disabled={login}
         />
         <input
           type="password"
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          disabled={creatingUser}
+          disabled={login}
         />
-        <button type="submit">Login</button>
+        <button type="submit" disabled={login}>
+          Login
+        </button>
         <div className="my-4 text-center text-gray-500">
           Or login with provider
         </div>
-        <button className="flex items-center justify-center gap-4">
+        <button
+          className="flex items-center justify-center gap-4"
+          disabled={login}
+        >
           <Image src={"/google.png"} alt={"google"} width={24} height={24} />
           Login with google
         </button>
