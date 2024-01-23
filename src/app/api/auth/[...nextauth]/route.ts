@@ -26,7 +26,7 @@ const handler = NextAuth({
         if (res.ok && user) {
           return user;
         }
-        // Return null if user data could not be retrieved
+        
         return null;
       },
     }),
