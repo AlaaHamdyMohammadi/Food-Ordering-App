@@ -11,7 +11,7 @@ function LoginPage() {
     e.preventDefault();
     setLogin(true);
 
-    await signIn('credentials');
+    await signIn('credentials', {email, password});
     
     setLogin(false);
   }
