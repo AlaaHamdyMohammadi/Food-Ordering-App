@@ -11,28 +11,19 @@ function LoginPage() {
     e.preventDefault();
     setLogin(true);
 
-    const res = await fetch('/api/login', {
-      method: 'POST',
-      body: JSON.stringify({email, password}),
-      headers: {'Content-Type': 'application/json'},
-    });
-
-    if(res.ok){
-
-    }else{
-
-    }
+    await signIn('credentials');
+    
     setLogin(false);
   }
 
   return (
     <section className="mt-8">
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
-      <form className="block max-w-xs mx-auto" method="POST" action='/api/auth'>
+      <form className="block max-w-xs mx-auto" method="POST" onSubmit={handleSubmit}>
         <input
           type="email"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={login}
@@ -40,7 +31,7 @@ function LoginPage() {
         <input
           type="password"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           disabled={login}

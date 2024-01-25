@@ -46,14 +46,14 @@ function RegisterPage() {
       <form className="block max-w-xs mx-auto" onSubmit={handleSubmit}>
         <input
           type="email"
-          placeholder="email"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={creatingUser}
         />
         <input
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           disabled={creatingUser}
