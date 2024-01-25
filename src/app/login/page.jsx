@@ -28,9 +28,10 @@ function LoginPage() {
   return (
     <section className="mt-8">
       <h1 className="text-center text-primary text-4xl mb-4">Login</h1>
-      <form className="block max-w-xs mx-auto" onSubmit={handleSubmit}>
+      <form className="block max-w-xs mx-auto" method="POST" action='/api/auth'>
         <input
           type="email"
+          name="email"
           placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -38,6 +39,7 @@ function LoginPage() {
         />
         <input
           type="password"
+          name="password"
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
