@@ -43,6 +43,7 @@ function LoginPage() {
           Or login with provider
         </div>
         <button
+          onClick={() => signIn('google')}
           className="flex items-center justify-center gap-4"
           disabled={login}
         >
